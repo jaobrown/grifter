@@ -53,15 +53,17 @@ function formatTweets(data) {
         );
         return {
           ...tweet,
+          user: user,
           media: {
             ...media,
           },
         };
       }
-      // if no attachments, return tweet as is
+      // if no attachments, return tweet as is with user
       return { ...tweet, user: user };
     });
 
+    // return grifted tweets with user adjecent
     return {
       user: user,
       tweets: makeTweetsGrifty(tweets),
